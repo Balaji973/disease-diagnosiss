@@ -26,11 +26,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Load Model ────────────────────────────────────────────
-model    = joblib.load('../model/disease_model.pkl')
-le       = joblib.load('../model/label_encoder.pkl')
-symptoms = joblib.load('../model/symptom_columns.pkl')
-
-# ── Suggestions ───────────────────────────────────────────
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+model    = joblib.load(os.path.join(BASE_DIR, 'model', 'disease_model.pkl'))
+le       = joblib.load(os.path.join(BASE_DIR, 'model', 'label_encoder.pkl'))
+symptoms = joblib.load(os.path.join(BASE_DIR, 'model', 'symptom_columns.pkl'))# ── Suggestions ───────────────────────────────────────────
 suggestions = {
     "Diabetes": {
         "diet": "Low sugar, high fiber. Avoid white rice & sweets.",
